@@ -12,8 +12,8 @@ Add bundle to your composer.json file
     // ...
     "require": {
         // ...
-        "symfony-bundle/jquery-bundle": "1.2.*";
-        // for JQuery 1.2
+        "symfony-bundle/jquery-bundle": "1.3.*";
+        // for JQuery 1.3
         // ...
     },
     "scripts": {
