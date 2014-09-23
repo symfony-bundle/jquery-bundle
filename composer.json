@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.9",
-        "components/jquery": "1.5.*"
+        "components/jquery": "1.6.*"
     },
     "autoload": {
         "psr-0": { "Anezi\\Bundle\\JQueryBundle": "" }
