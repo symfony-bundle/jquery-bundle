@@ -12,8 +12,8 @@ Add bundle to your composer.json file
     // ...
     "require": {
         // ...
-        "symfony-bundle/jquery-bundle": "1.8.*";
-        // for JQuery 1.8
+        "symfony-bundle/jquery-bundle": "1.9.*";
+        // for JQuery 1.9
         // ...
     },
     "scripts": {
@@ -66,10 +66,18 @@ Usage
 Refer to the full jquery file in your HTML template:
 
     <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery.js') }}"></script>
-    
-Or to the minimal file:
+
+Refer to the minimal jquery file:
 
     <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery.min.js') }}"></script>
+
+Refer to the full jquery migrate file:
+
+    <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery-migrate.min.js') }}"></script>
+
+Refer to the minimal jquery migrate file:
+
+    <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery-migrate.min.js') }}"></script>
 
 License
 =======
