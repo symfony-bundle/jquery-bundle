@@ -12,8 +12,8 @@ Add bundle to your composer.json file
     // ...
     "require": {
         // ...
-        "symfony-bundle/jquery-bundle": "1.6.*";
-        // for JQuery 1.6
+        "symfony-bundle/jquery-bundle": "1.7.*";
+        // for JQuery 1.7
         // ...
     },
     "scripts": {
@@ -63,10 +63,13 @@ Update assets using composer post command:
 Usage
 =====
 
-Refer to the desired files in your HTML template, e.g.
+Refer to the full jquery file in your HTML template:
 
     <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery.js') }}"></script>
+    
+Or to the minimal file:
 
+    <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery.min.js') }}"></script>
 
 License
 =======

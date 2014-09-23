@@ -39,6 +39,11 @@ class ScriptHandler
             $bundle . '/Anezi/Bundle/JQueryBundle/Resources/public/js/jquery.js'
         );
 
+        copy(
+            $jquery . '/jquery.js',
+            $bundle . '/Anezi/Bundle/JQueryBundle/Resources/public/js/jquery.min.js'
+        );
+
         $IO->write(" <info>OK</info>");
     }
 }
