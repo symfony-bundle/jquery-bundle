@@ -1,0 +1,22 @@
+{
+    "name": "symfony-bundle/jquery-bundle",
+    "type": "symfony-bundle",
+    "description": "JQuery Bundle",
+    "keywords": ["jquery", "symfony bundle"],
+    "homepage": "https://git.anezi.net/symfony/jquerybundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hassan AMOUHZI",
+            "email": "hassan@amouhzi.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.9",
+        "components/jquery": "1.2.*"
+    },
+    "autoload": {
+        "psr-0": { "Anezi\\Bundle\\JQueryBundle": "" }
+    },
+    "target-dir": "Anezi/Bundle/JQueryBundle"
+}
