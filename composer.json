@@ -13,10 +13,58 @@
     ],
     "require": {
         "php": ">=5.3.9",
-        "components/jquery": "2.1.*"
+        "curl/curl": "1.1.*",
+        "composer/composer": "1.0.x-dev"
+    },
+    "require-dev": {
+        "symfony/symfony": "2.5.*",
+        "twig/extensions": "~1.0",
+        "symfony/assetic-bundle": "~2.3",
+        "sensio/distribution-bundle": "~3.0",
+        "sensio/framework-extra-bundle": "~3.0",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "phpunit/phpunit": "4.3.*",
+        "symfony-bundle/bootstrap-bundle": "3.2.*",
+        "symfony-bundle/highlight-bundle": "1.0.*"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "SymfonyStandard\\Composer::hookRootPackageInstall"
+        ],
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Anezi\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::copyFilesToBundle",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "Anezi\\Bundle\\JQueryBundle\\Composer\\ScriptHandler::installAssets",
+            "Anezi\\Bundle\\HighlightBundle\\Composer\\ScriptHandler::installExtraAssets"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Anezi\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::copyFilesToBundle",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "Anezi\\Bundle\\JQueryBundle\\Composer\\ScriptHandler::installAssets",
+            "Anezi\\Bundle\\HighlightBundle\\Composer\\ScriptHandler::installExtraAssets"
+        ]
     },
     "autoload": {
-        "psr-0": { "Anezi\\Bundle\\JQueryBundle": "" }
+        "psr-0": {
+            "Anezi\\Bundle\\JQueryBundle": "src/"
+        }
     },
-    "target-dir": "Anezi/Bundle/JQueryBundle"
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "jquery-version": "*"
+    }
 }

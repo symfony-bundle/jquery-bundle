@@ -1,0 +1,170 @@
+{% extends "::base.html.twig" %}
+{% block mainContentOfPage %}
+
+    <h1 class="page-header">
+        JQuery Bundle for Symfony
+    </h1>
+
+    <p>Add the jQuery framework inside the Symfony2 framework.</p>
+
+    <h2>1. Installation</h2>
+
+    <h3>1.1 System requirements</h3>
+
+    <p>
+        No system requirements for this bundle. Required packaged will be
+        installed automatically, see <a
+                href="https://github.com/symfony-bundle/jquery-bundle/blob/master/composer.json"
+                title="Composer file" target="_new">Composer file</a> for more details.
+    </p>
+
+    <h3>1.2 Composer requirements</h3>
+
+    <p>Add bundle to your composer.json file</p>
+
+    {% highlight json %}
+{
+    "require": {
+        "symfony-bundle/jquery-bundle": "3.0.*"
+    }
+}
+    {% endhighlight %}
+
+    <p>Before the version 3. Jquery Bundle versions follow those of JQuery,
+        e.g. JQuery Bundle 2.0.* will install the latest JQuery 2.0.</p>
+
+    <p>Now JQuery Bundle doesn't follow anymore JQuery versions.
+        You need to specify which version you need in an extra composer parameter.
+        E.g.:
+    </p>
+
+    {% highlight json %}
+{
+    "extra": {
+        "jquery-version": ">2.1"
+    }
+}
+    {% endhighlight %}
+
+    <h3>1.3 Enable Jquery files installer</h3>
+
+    <p>
+        Add this line
+        <code>Anezi\\Bundle\\JQueryBundle\\Composer\\ScriptHandler\\installAssets</code>
+        in <code>post-install-cmd</code> and <code>post-update-cmd</code>
+        sections of your composer.json. It will looks like:
+    </p>
+
+    {% highlight composer %}
+{
+    "scripts": {
+        "post-install-cmd": [
+            "Anezi\\Bundle\\JQueryBundle\\Composer\\ScriptHandler\\installAssets"
+        ],
+        "post-update-cmd": [
+            "Anezi\\Bundle\\JQueryBundle\\Composer\\ScriptHandler\\installAssets"
+        ]
+    }
+}
+    {% endhighlight %}
+
+    <h3>1.4 Bundle activation</h3>
+
+    <p>
+        Add bundle to your application kernel
+    </p>
+
+    {% highlight php %}
+<?php
+// app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = array(
+    // ...
+    new Anezi\Bundle\JQueryBundle\JQueryBundle(),
+    // ...
+    );
+}
+?>{% endhighlight %}
+
+    <h3>1.5 Project update</h3>
+
+    {{ '$ composer update'|highlight('bash') }}
+
+    <h2>2. Usage</h2>
+
+    <h3>2.1 Add asset in your twig files</h3>
+
+    <p>
+        JQuery files are installed in <code>web/bundles/jquery-extra</code> folder.
+        To add one of them to you twig file, you copy this code:
+    </p>
+
+    {% highlight htmltwig %}{% verbatim %}
+<script type="text/javascript" src="{{ asset('bundles/jquery-extra/jquery.js') }}"></script>
+{% endverbatim %}{% endhighlight %}
+
+    <h3>2.2 Documentation route</h3>
+
+    <p>
+        You can add this documentation in your web site by adding
+        the follow route in <code>routing.yml</code>:
+    </p>
+
+    {% highlight yaml %}
+jquery:
+    resource: "@JQueryBundle/Resources/config/routing.yml"
+    prefix:   /docs/jquery-bundle
+    {% endhighlight %}
+
+    <h2>3. Contributions</h2>
+
+    <p>
+        You can fork this bundle and run it locally as a standalone
+        symfony application.
+    </p>
+
+    <p>
+        Then install requirements by using this command:
+    </p>
+
+    {{ '$ composer install'|highlight('bash') }}
+
+    <p>
+        Check your environment, then run the server with this command:
+    </p>
+
+    {{ '$ php app/console server:run'|highlight('bash') }}
+
+    <p>
+        Open <code>127.0.0.1:8000</code> in your browser.
+    </p>
+
+    <p>Your contributions are welcome.</p>
+
+    <h2>4. License</h2>
+
+    <p>The MIT License (MIT)</p>
+
+    <p>Copyright (c) 2014 Hassan Amouhzi</p>
+
+    <p>Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:</p>
+
+    <p>The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.</p>
+
+    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.</p>
+
+{% endblock mainContentOfPage %}

@@ -1,0 +1,3 @@
+jquery_homepage:
+    path:     /
+    defaults: { _controller: JQueryBundle:Docs:index }
